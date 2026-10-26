@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flora – Plant Identifier</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="veil" aria-hidden="true"></div>
+<div class="waves" aria-hidden="true">
+  <canvas id="silk"></canvas>
+  <canvas id="leaves"></canvas>
+</div>
+<button class="press themeBtn" id="themeBtn" aria-label="Switch between light and dark mode"><span id="themeIco">🌙</span><span id="themeLbl">Dark</span></button>
+<div class="wrap">
+  <header>
+    <h1 class="flow" aria-label="Flora"><span aria-hidden="true" style="--i:0">F</span><span aria-hidden="true" style="--i:1">l</span><span aria-hidden="true" style="--i:2">o</span><span aria-hidden="true" style="--i:3">r</span><span aria-hidden="true" style="--i:4">a</span></h1>
+    <p>Snap a photo or type a name to meet any plant.</p>
+    <div class="tip" id="tip" title="Tap for another"><span class="ico" id="tipIco">🌱</span><span class="txt" id="tipTxt"></span></div>
+  </header>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="press tab on" id="tabPhoto">Take a photo</button>
+      <button class="press tab" id="tabName">Search by name</button>
+    </div>
+
+    <div id="photoPane" class="pane">
+      <input type="file" id="file" accept="image/*" capture="environment" class="hidden">
+      <button class="press drop" id="drop"><svg class="plant" viewBox="0 0 80 90" width="64" height="72" aria-hidden="true"><g class="sway"><path d="M40 88 C40 60 38 40 40 18" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/><path class="leaf la" d="M40 60 C24 58 14 48 12 38 C26 38 38 46 40 60Z" fill="currentColor" opacity=".85"/><path class="leaf lb" d="M40 45 C56 43 66 33 68 23 C54 23 42 31 40 45Z" fill="currentColor"/><path class="leaf lc" d="M40 18 C32 10 34 2 40 0 C46 2 48 10 40 18Z" fill="currentColor" opacity=".9"/></g></svg><strong>Tap to take or upload a photo</strong><span>Leaves, flowers, or the whole plant work best</span></button>
+      <div id="previewBox" class="pane hidden">
+        <img id="preview" class="preview" alt="Your plant photo">
+        <div class="row">
+          <button class="press btn" id="idBtn">Identify plant</button>
+          <button class="press btn ghost" id="retake">Choose another</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="namePane" class="pane hidden">
+      <div class="row">
+        <input type="text" id="nameIn" placeholder="e.g. monstera, lavender, saguaro" autocomplete="off">
+        <button class="press btn" id="nameBtn">Look up</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="out"></div>
+  <footer>Identifications are AI estimates. Never eat or handle a wild plant based on this alone.</footer>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/background.js"></script>
+<script src="js/tips.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
